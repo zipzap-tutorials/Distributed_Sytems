@@ -1,0 +1,17 @@
+## Summary
+
+This work developed an overview of distributed systems through the systematic relaxation of seven idealizing assumptions and the corresponding introduction of seven real-world constraints. The framework's purpose is to make explicit *why* the field's central mechanisms and trade-offs exist, as necessary responses to specific, named constraints, rather than presenting them as an unordered catalogue of techniques. A brief recap of each chapter:
+
+- **Chapter 1 — Processes** addressed the anomalies introduced once operations on a single node are no longer instantaneous, and the mechanisms (locking, MVCC) and isolation levels used to control them.
+- **Chapter 2 — Storage** addressed the cost asymmetry between memory and disk, and the data structures, data models, and caching strategies used to arrange data efficiently across physical storage.
+- **Chapter 3 — Data** addressed data volumes exceeding a single machine's capacity, and the partitioning strategies used to distribute data horizontally.
+- **Chapter 4 — Throughput** addressed read and write throughput exceeding a single machine's capacity, and the replication strategies (single-leader, multi-leader, and leaderless) used to distribute load.
+- **Chapter 5 — Network** addressed variable, non-zero network latency and finite bandwidth, along with the communication protocols and anti-entropy mechanisms used to manage them.
+- **Chapter 6 — Clocks** addressed the absence of a synchronized global clock, and the logical and vector clock mechanisms used to reason about event ordering despite clock skew.
+- **Chapter 7 — Failures** addressed node crashes and network partitions, and the atomicity, isolation, leader-election, and consensus mechanisms used to tolerate them.
+
+Against the classic Fallacies of Distributed Computing, the stack developed here covers network reliability, latency, bandwidth, and the cost of transport (to some extent) directly, and adds storage, scale, and clock dimensions the fallacies do not name, but it leaves network security, topology change, administrative domain, and hardware heterogeneity out of scope, since these are organizational, economic, and security constraints rather than purely technical ones.
+
+Across these seven chapters, the discussion touched on a wide set of interacting system guarantees, among them atomicity, isolation, durability, consistency, availability, latency, scalability, and reliability, and, at each stage, the inherent trade-offs between them. Earlier chapters deliberately presented solutions that were only correct under the simplifying assumptions still in force at that point in the narrative, for instance the reliance on Last-Write-Wins conflict resolution in Chapter 4, correct only so long as a synchronized global clock is assumed. Later chapters revisited these same solutions once the relevant assumption was relaxed, producing a more complete and realistic picture. This progression is intended to help readers approach distributed system design as a form of qualitative constrained optimization, a discipline of identifying which assumptions no longer hold for a given problem and reasoning systematically about the trade-offs that follow, rather than as a fixed body of facts to memorize; the ordering itself is a pedagogical device as much as a technical one. The breadth of mechanisms surveyed here is intended to equip readers with a systematic toolkit for decomposing and reasoning through distributed system design problems of their own.
+
+---
