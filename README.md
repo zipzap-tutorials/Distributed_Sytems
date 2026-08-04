@@ -1,4 +1,4 @@
-# Distributed_Sytems
+# Distributed_Systems
 Distributed Systems Overview using A Stacked Assumption-Relaxation and Constraint-Introduction Framework
 
 [Arpit Rathi](https://www.linkedin.com/in/arpitrathi-iitb/)
